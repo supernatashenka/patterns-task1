@@ -123,7 +123,7 @@ public class OrderCardTest {
                 "и использования моих персональных данных" ) ).shouldBe( Condition.visible );
 
     }
-//
+
 
 
 }
