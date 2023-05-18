@@ -34,6 +34,11 @@ public class DataGenerator {
         return cities[new Random().nextInt(cities.length)];
 
     }
+    public static String generateInvalidCity() {
+        var cities = new String[]{"London","Paris","Berlin","Зарайск","Луганск","Киев"};
+        return cities[new Random().nextInt(cities.length)];
+
+    }
 
     public static String generateName(String locale) {
         var faker = new Faker(new Locale(locale));
@@ -54,11 +59,22 @@ public class DataGenerator {
             return new UserInfo(generateCity(), generateName(locale), generatePhoneNumber(locale));
         }
 
+        public static UserInfo generateInvalidUser(String locale) {
+            return new UserInfo(generateInvalidCity(), generateName(locale), generatePhoneNumber(locale));
+        }
+
         @Value
         public static class UserInfo {
             String city;
             String name;
             String phone;
+        }
+        @Value
+        public static class InvalidUserInfo {
+            String city;
+            String name;
+            String phone;
+
         }
     }
 
